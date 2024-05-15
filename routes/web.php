@@ -1,24 +1,22 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FormController;
+
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/form', function () {
+    return view('form');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+//store data
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
+Route::post('store_data', [FormController::class , 'store_data'])->name("students.create");;
 
-require __DIR__.'/auth.php';
+// data fetch
+Route::get('records', [FormController::class , 'records']) ->name("students.index");
+//delete data
+Route::get('delete_record/{id}', [FormController::class , 'delete_record'])->name("students.delete");;
 
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('edit_record/{id}', [FormController::class , 'edit_record'])->name("students.submit");;
+ 
+Route::post('update_data/{id}', [FormController::class , 'update_data']);
