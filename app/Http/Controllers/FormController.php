@@ -26,7 +26,7 @@ class FormController extends Controller
 
         
 
-
+        //image upload
         $imageName = time() . '.' . $request->image->extension();  
         $path = $request->image->storeAs('image', $imageName, 'public');
         //save the data

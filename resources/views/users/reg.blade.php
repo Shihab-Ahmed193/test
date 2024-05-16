@@ -8,28 +8,40 @@
     <title>Document</title>
 </head>
 <body>
+  <center> 
+  <h1> User Registration </h1>
+  </center>
+   
   <div class="container" >
-<form>
+
+<form action="{{route('reg')}}" method="POST">
+@csrf
 <div class="mb-3">
-    <label for="exampleInputEmail1" class="form-label">Username</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+    <label for="exampleInputEmail1" class="form-label">First Name</label>
+    <input type="text" name ="fname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+   
+  </div>
+
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Last Name</label>
+    <input type="text" name ="lname" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+   
   </div>
 
   <div class="mb-3">
     <label for="exampleInputEmail1" class="form-label">Email address</label>
-    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <input type="email" name="email"class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     
   </div>
   
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">Password</label>
-    <input type="password" class="form-control" id="exampleInputPassword1">
+    <input type="password" name="pasword" class="form-control" id="exampleInputPassword1">
   </div>
    
   <button type="submit" class="btn btn-primary">Registration</button>
 </form>
 </div>
-
+ 
 </body>
 </html>
