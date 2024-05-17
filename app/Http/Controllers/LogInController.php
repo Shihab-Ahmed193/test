@@ -26,7 +26,7 @@ class LogInController extends Controller
         return view('users.login')->with('message', 'Invalid Log In Credentials');
     }    
     return view('users.login')->with('message', 'Invalid Log In Credentials');
-}
+} 
 
 
 public function reg()
