@@ -11,14 +11,14 @@ Route::get('/', function () {
 
 //store data
 
-Route::post('store_data', [FormController::class , 'store_data'])->name("students.create");;
+Route::get('store/data', [FormController::class , 'create'])->name("students.create");
+Route::post('store_data', [FormController::class , 'store_data'])->name("students.store");
 
-// data fetch
-Route::get('records', [FormController::class , 'records']) ->name("students.index");
+
 //delete data
-Route::get('delete_record/{id}', [FormController::class , 'delete_record'])->name("students.delete");;
+Route::get('delete_record/{id}', [FormController::class , 'delete_record'])->name("students.delete");
 
-Route::get('edit_record/{id}', [FormController::class , 'edit_record'])->name("students.submit");;
+Route::get('edit_record/{id}', [FormController::class , 'edit_record'])->name("students.submit");
  
 Route::post('update_data/{id}', [FormController::class , 'update_data']);
 
@@ -32,14 +32,14 @@ Route::post('update_data/{id}', [FormController::class , 'update_data']);
 
 ////========Auth Login+=======
 
-Route::group(['middleware' => 'guest'], function () {
+// Route::group(['middleware' => 'guest'], function () {
     Route::get('/register', [AuthController::class, 'register'])->name('register');
     Route::post('/register', [AuthController::class, 'registerPost'])->name('register');
     Route::get('/login', [AuthController::class, 'login'])->name('login');
-    Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
-});
+    Route::post('/login-submit', [AuthController::class, 'loginPost'])->name('login.submit');
+// });
  
 Route::group(['middleware' => 'auth'], function () {
-    Route::get('/records', [FormController::class, 'index']);
+    Route::get('/records', [FormController::class, 'index'])->name("students.index");
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 });

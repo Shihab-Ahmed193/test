@@ -23,17 +23,26 @@
                     <form action="{{ route('register') }}" method="POST">
                         @csrf
                         <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="John Doe" required>
+                            <label for="name" class="form-label">First Name</label>
+                            <input type="text" name="first_name" class="form-control" id="name" placeholder=" " required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="last_name" class="form-label">Last Name</label>
+                            <input type="text" name="last_name" class="form-control" id="name" placeholder=" " required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Address</label>
+                            <input type="text" name="address" class="form-control" id="name" placeholder="Address" required>
                         </div>
                         <div class="mb-3">
                             <label for="email" class="form-label">Email address</label>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="name@example.com" required>
+                            <input type="email" name="email" class="form-control" id="email" placeholder=" " required>
                         </div>
                         <div class="mb-3">
                             <label for="password" class="form-label">Password</label>
-                            <input type="password" name="password" class="form-control" id="password" required>
+                            <input type="password" name="password" class="form-control" id=" " required>
                         </div>
+                       
                         <div class="mb-3">
                             <div class="d-grid">
                                 <button class="btn btn-primary">Register</button>

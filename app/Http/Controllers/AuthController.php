@@ -1,7 +1,9 @@
 <?php
  
 namespace App\Http\Controllers;
- 
+
+use App\Http\Requests\registration;
+use App\Models\Employee;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +20,10 @@ class AuthController extends Controller
     {
         $user = new User();
  
-        $user->name = $request->name;
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
         $user->email = $request->email;
+        $user->address = $request->address;
         $user->password = Hash::make($request->password);
  
         $user->save();
@@ -36,8 +40,10 @@ class AuthController extends Controller
     {
         $credetials = [
             'email' => $request->email,
+            // 'password' => Hash::make($request->password),
             'password' => $request->password,
         ];
+
  
         if (Auth::attempt($credetials)) {
             return redirect('/records')->with('success', 'Login Success');

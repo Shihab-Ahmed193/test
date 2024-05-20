@@ -10,6 +10,12 @@ use Illuminate\Support\Facades\Storage;
 
 class FormController extends Controller
 {
+
+
+public function create(){
+    return view("form");
+}
+
     function store_data(StudentForm $request)
     {
         $data = new Student; //send data though model (Student)
@@ -38,7 +44,7 @@ class FormController extends Controller
     }
     // data showing in a a table
 
-    function records()
+    function index()
     {
 
         $records = Student::all(); //data fetch by model

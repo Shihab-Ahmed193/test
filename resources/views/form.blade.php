@@ -12,7 +12,7 @@
    <h1>From Creation</h1> 
   </center>
 <div class="container">   
-<form action="store_data" method="POST" enctype="multipart/form-data">
+<form action="{{ route("students.store")}}" method="POST" enctype="multipart/form-data">
   @csrf
   
   <div class="form-group">

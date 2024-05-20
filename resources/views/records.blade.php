@@ -28,7 +28,6 @@
 
 
 
-
   <table class="table">
 
     <thead>
@@ -42,8 +41,14 @@
         <th scope="col">Image</th>
         <th scope="col">Created Date</th>
         <th scope="col"> </th>
-        <th><a href="{{ route("students.create") }}"> <button class="btn btn-outline-info">CREATE NEW</button> </a></th>
-
+        <th><a href="{{ route('students.create') }}"> <button class="btn btn-outline-info">CREATE NEW</button> </a></th>
+        <p align="right">
+        <form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger" type="submit">Logout</button>
+            </form>
+</p>
       </tr>
     </thead>
     <tbody>
